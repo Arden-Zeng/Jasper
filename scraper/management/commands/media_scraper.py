@@ -122,6 +122,7 @@ def getFavicon(domain):
         return icon_link["href"]
 
 def articleScrape(post, url):
+    print("FETCH: " + url)
     time = post['data']['created_utc']
     upvotes = post['data']['score']
     try:
