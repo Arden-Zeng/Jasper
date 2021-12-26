@@ -36,9 +36,6 @@
                             <ul>
                                 <li><img src="{% static '/jasper-logo.png' %}" width="50" height="50"
                                         class="d-inline-block align-middle" alt=""></li>
-                                <li>
-                                    <h1 style="text-align: center;">Jasper</h1>
-                                </li>
                             </ul>
                         </a>
                     </div>
@@ -70,8 +67,7 @@
                             </small>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-                        <small id="passwordHelp" class="form-text text-muted">Already have an account? <a href={%
-                                url 'login_page' %}>Sign In!</a></small>
+                        <small id="passwordHelp" class="form-text text-muted">Already have an account? <a href={% url 'login_page' %}>Sign In!</a></small>
                     </form>
                 </div>
             </section>

@@ -36,9 +36,6 @@
                             <ul>
                                 <li><img src="{% static '/jasper-logo.png' %}" width="50" height="50"
                                         class="d-inline-block align-middle" alt=""></li>
-                                <li>
-                                    <h1 style="text-align: center;">Jasper</h1>
-                                </li>
                             </ul>
                         </a>
                     </div>
@@ -55,8 +52,7 @@
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1"
                                 placeholder="Password" name="password">
-                            <small id="passwordHelp" class="form-text text-muted">Need an account? <a href={%
-                                    url 'register_page' %}>Join Now!</a></small>
+                            <small id="passwordHelp" class="form-text text-muted">Need an account? <a href={% url 'register_page' %}>Join Now!</a></small>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Log In</button>
                         {% if messages %}
