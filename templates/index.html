@@ -17,11 +17,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT1LP3RQK5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+        gtag('config', 'G-MT1LP3RQK5');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- Custom CSS-->
     <link rel="stylesheet" href="{% static 'index.css' %}">
@@ -73,47 +79,56 @@
         {% if user.is_authenticated %}
         <ul>
             <li>
-                <button class="interest-button" id = "gnews" style = "background-color: {{ user | isFollowing:'gnews' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="gnews" style="background-color: {{ user | isFollowing:'gnews' }};"
+                    onclick="modifyInterest(this.id)">
                     Global News
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "cnews" style = "background-color: {{ user | isFollowing:'cnews' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="cnews" style="background-color: {{ user | isFollowing:'cnews' }};"
+                    onclick="modifyInterest(this.id)">
                     Canadian News
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "cpoli" style = "background-color: {{ user | isFollowing:'cpoli' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="cpoli" style="background-color: {{ user | isFollowing:'cpoli' }};"
+                    onclick="modifyInterest(this.id)">
                     Canadian Politics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "apoli" style = "background-color: {{ user | isFollowing:'apoli' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="apoli" style="background-color: {{ user | isFollowing:'apoli' }};"
+                    onclick="modifyInterest(this.id)">
                     American Politics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "econ" style = "background-color: {{ user | isFollowing:'econ' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="econ" style="background-color: {{ user | isFollowing:'econ' }};"
+                    onclick="modifyInterest(this.id)">
                     Economics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "tech" style = "background-color: {{ user | isFollowing:'tech' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="tech" style="background-color: {{ user | isFollowing:'tech' }};"
+                    onclick="modifyInterest(this.id)">
                     Technology
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "env" style = "background-color: {{ user | isFollowing:'env' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="env" style="background-color: {{ user | isFollowing:'env' }};"
+                    onclick="modifyInterest(this.id)">
                     Environment
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "sci" style = "background-color: {{ user | isFollowing:'sci' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="sci" style="background-color: {{ user | isFollowing:'sci' }};"
+                    onclick="modifyInterest(this.id)">
                     Science
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "enter" style = "background-color: {{ user | isFollowing:'enter' }};" onclick = "modifyInterest(this.id)">
+                <button class="interest-button" id="enter" style="background-color: {{ user | isFollowing:'enter' }};"
+                    onclick="modifyInterest(this.id)">
                     Entertainment
                 </button>
             </li>
@@ -121,47 +136,50 @@
         {% else %}
         <ul>
             <li>
-                <button class="interest-button" id = "gnews" style = "background-color: #ebebeb;" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="gnews" style="background-color: #ebebeb;"
+                    onclick="window.location.href='{% url 'login_page' %}'">
                     Global News
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "cnews" style = "background-color: #ebebeb;" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="cnews" style="background-color: #ebebeb;"
+                    onclick="window.location.href='{% url 'login_page' %}'">
                     Canadian News
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "cpoli" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="cpoli" onclick="window.location.href='{% url 'login_page' %}'">
                     Canadian Politics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "apoli" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="apoli" onclick="window.location.href='{% url 'login_page' %}'">
                     American Politics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "econ" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="econ" onclick="window.location.href='{% url 'login_page' %}'">
                     Economics
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "tech" style = "background-color: #ebebeb;" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="tech" style="background-color: #ebebeb;"
+                    onclick="window.location.href='{% url 'login_page' %}'">
                     Technology
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "env" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="env" onclick="window.location.href='{% url 'login_page' %}'">
                     Environment
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "sci" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="sci" onclick="window.location.href='{% url 'login_page' %}'">
                     Science
                 </button>
             </li>
             <li>
-                <button class="interest-button" id = "enter" onclick="window.location.href='{% url 'login_page' %}'">
+                <button class="interest-button" id="enter" onclick="window.location.href='{% url 'login_page' %}'">
                     Entertainment
                 </button>
             </li>
@@ -169,7 +187,7 @@
         {% endif %}
     </div>
     <h2 class="subreddit-name trending-label">Trending Today</h2>
-    <div id ="posts">
+    <div id="posts">
         {% include 'posts.html' %}
     </div>
 
