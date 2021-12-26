@@ -72,7 +72,7 @@ def search_page(request, searchTerm):
     searchTerms = userSearch.split(" ")
     posts = Post.objects.all()
     for term in searchTerms:
-        posts = posts.filter(title__contains=term)
+        posts = posts.filter(title__icontains=term)
 
     saved_posts = set()
     if request.user.is_authenticated:
