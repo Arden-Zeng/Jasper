@@ -1,0 +1,122 @@
+{% load static %}
+{% load timezonetag %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Google Font CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    </script>
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+    <script>
+        var $j = jQuery.noConflict();
+        function savePost(postid) {
+            changeSaveState(postid)
+            $j.ajax({
+                type: "POST",
+                url: '{% url "save_post" %}',
+                dataType: 'json',
+                async: true,
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    postid: postid
+                },
+                success: {}
+            })
+        }
+
+        function changeSaveState(postid) {
+            console.log(postid)
+            if (document.getElementById(postid).src.includes("before")) {
+                document.getElementById(postid).src = "{% static 'save-icon-after.png' %}";
+            }
+            else {
+                document.getElementById(postid).src = "{% static 'save-icon-before.png' %}";
+            }
+        }
+
+    </script>
+
+    <title>Jasper</title>
+</head>
+
+<body>
+    {% for post in posts %}
+    <div class="article">
+        <a href={{post.url}} target="_blank" rel="noopener noreferrer">
+            <h2 class="subreddit-name">From r/{{post.parent_reddit.name | lower}} | {{post.time | unix_to_datetime}}
+            </h2>
+
+            <div class="row post-contents no-gutters">
+                <div class="col-sm-10">
+                    <h1 class="post-title">{{post.title}}</h1>
+                    <p class="post-desc">{{post.body}}</p>
+                </div>
+                <div class="col-sm-2">
+                    <div class="image-container"><img class="image-preview" src="{{post.img}}"></div>
+                </div>
+            </div>
+
+            <div class="upvote">
+                <div class="row">
+                    <div class="col-sm">
+                        <h2 class="upvote-count">Upvotes: {{post.upvotes}}</h2>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <div class="row no-gutters icon-footer">
+
+            <div class="col-sm-6 center">
+                {% if user.is_authenticated %}
+                <button class="icon-button" onclick="savePost('{{post.id}}')">
+                    <span class="save-text">Save</span>
+                    {% if post in saved_posts %}
+                    <img class="save-icon" id="{{post.id}}" src="{% static 'save-icon-after.png' %}">
+                    {% else %}
+                    <img class="save-icon" id="{{post.id}}" src="{% static 'save-icon-before.png' %}">
+                    {% endif %}
+                </button>
+                {% else %}
+                <a href="{% url 'login_page' %}">
+                    <button class="icon-button">
+                        <span class="save-text">Save</span>
+                        <img class="save-icon" src="{% static 'save-icon-before.png' %}">
+                    </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

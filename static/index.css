@@ -1,0 +1,287 @@
+body {
+    font-family: 'Basic', sans-serif;
+    background-color: #d5dce2!important;
+}
+
+.trending-label {
+  margin-top: 10px;
+  margin-left: 20%
+}
+
+.interest-header {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-radius: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
+.nested-header {
+  width: 100%;
+  min-height: 35px;
+  background-color: #1576d9;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.nested-header-title {
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+ul {
+  padding-left: 5px;
+  list-style-type: none;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+li {
+  display: inline;
+}
+
+.interest-button {
+  border-radius: 15px;
+  background-color: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #ebebeb;
+}
+
+.interest-button:focus {
+  outline: 0 !important;
+}
+
+.article {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition-duration: 1s;
+}
+
+.profile {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.profile-jasper-brand {
+  margin-left: auto;
+}
+
+.settings-tag {
+  padding-left: 2px;
+  padding-right: 10px;
+}
+
+.article:hover {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background-color: #ebebeb;
+}
+
+.subreddit-name {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: small;
+    color: gray;
+}
+
+.post-title {
+    padding-left: 10px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.post-desc {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+}
+
+.upvote-count {
+    font-size: small;
+    color: gray;
+}
+
+.image-container {
+  border-radius: 10%;
+  border: none;
+  height: 75%;
+  width: 80%;
+  margin: 0;
+  background-color: #000000;
+  position: absolute;
+  top: min(50px, 50%);
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.upvote {
+  padding-left: 15px;
+}
+
+.icon-footer {
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.image-preview {
+  border-radius: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.save-text {
+  font-size: small;
+  color: gray;
+  margin-right: 2px;
+}
+
+.share-text {
+  font-size: small;
+  color: gray;
+  margin-right: 5px;
+}
+
+.save-icon {
+  max-height: 15px;
+  max-width: 15px;
+}
+
+.share-icon {
+  max-height: 20px;
+  max-width: 20px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.icon-button:focus {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none!important;
+  color: inherit!important;
+}
+
+a:hover {
+  text-decoration: none!important;
+}
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 80%;
+}
+
+.right {
+  width: 20%;
+}
+
+.contentrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media only screen and (max-width: 600px) {
+  .article{
+    margin-left:0%;
+    margin-right: 0%;;
+  }
+  .profile {
+    margin-left: 0%;
+    margin-right: 0%;;
+  }
+  .interest-header {
+    margin-left:0%;
+    margin-right: 0%;;
+  }
+  .trending-label {
+    margin-top: 10px;
+    margin-left: 0%
+  }
+  .sb {
+    display: none;
+  }
+}
+
+
+/*
+
+Fade in text (Unused in current build)
+
+.fade-in-text {
+    display: inline-block;
+    animation: fadeIn linear 1.3s;
+    -webkit-animation: fadeIn linear 1.3s;
+    -moz-animation: fadeIn linear 1.3s;
+    -o-animation: fadeIn linear 1.3s;
+    -ms-animation: fadeIn linear 1.3s;
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+*/
