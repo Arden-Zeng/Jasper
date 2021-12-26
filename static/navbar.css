@@ -47,3 +47,17 @@ body {
     padding-left: 35px;
     margin-right: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+    .sb {
+      display: none;
+    }
+    .signup-btn {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .login-btn {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+  }
